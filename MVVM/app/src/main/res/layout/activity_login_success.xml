@@ -10,14 +10,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".LoginSuccessActivity">
+        tools:context=".HomeActivity">
 
         <ImageView
             android:id="@+id/hello"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="100dp"
-            android:src="@drawable/img"
+            android:src="@drawable/hand"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

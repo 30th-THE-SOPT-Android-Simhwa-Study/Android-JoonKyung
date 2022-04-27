@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MVVM">
         <activity
-            android:name=".LoginSuccessActivity"
+            android:name=".HomeActivity"
             android:exported="false" />
         <activity
             android:name=".JoinActivity"

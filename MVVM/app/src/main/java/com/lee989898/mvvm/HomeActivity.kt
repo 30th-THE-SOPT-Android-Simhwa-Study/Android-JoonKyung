@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.lee989898.mvvm.databinding.ActivityLoginSuccessBinding
 
-class LoginSuccessActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginSuccessBinding
 
@@ -13,7 +13,16 @@ class LoginSuccessActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login_success)
 
-        val getEmail = intent.getParcelableExtra<EmailData>("email")
-        binding.email.text = getEmail?.email
+//        val getEmail = intent.getParcelableExtra<UserData>("email")
+//        binding.email.text = getEmail?.email
+
+        intent.getParcelableExtra<UserData>(EMAIL)?.let { email ->
+            binding.email.text = email.email
+        }
+
+    }
+
+    companion object {
+        private const val EMAIL = "email"
     }
 }

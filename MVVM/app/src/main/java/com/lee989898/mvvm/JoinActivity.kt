@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.lee989898.mvvm.databinding.ActivityJoinBinding
-import com.lee989898.mvvm.databinding.ActivityMainBinding
 
 class JoinActivity : AppCompatActivity() {
 

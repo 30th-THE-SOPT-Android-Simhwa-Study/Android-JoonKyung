@@ -1,15 +1,11 @@
 package com.lee989898.mvvm
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.lee989898.mvvm.databinding.ActivityMainBinding
@@ -22,15 +18,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.viewModel = viewModel
+        binding.loginModel = viewModel
         binding.lifecycleOwner = this
 
 
         viewModel.getLoginSuccess().observe(this, Observer<Boolean> { result ->
             if (result == true) {
                 viewModel.setEmail(binding.email.text.toString())
-                val intent = Intent(this, LoginSuccessActivity::class.java)
-                intent.putExtra("email", EmailData(viewModel.getEmail().value.toString()))
+                val intent = Intent(this, HomeActivity::class.java)
+                intent.putExtra("email", UserData(viewModel.getEmail().value.toString()))
                 startActivity(intent)
             }
         })
