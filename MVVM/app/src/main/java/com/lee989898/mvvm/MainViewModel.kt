@@ -1,16 +1,55 @@
 package com.lee989898.mvvm
 
+import android.service.autofill.Validators.and
+import android.util.Patterns
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import java.util.regex.Pattern
 
-class MainViewModel: ViewModel() {
-    private val count = MutableLiveData(0)
+class MainViewModel : ViewModel() {
+    private val email = MutableLiveData("")
+    private val pwd = MutableLiveData("")
+    private val emailCheck = MutableLiveData(false)
+    private val pwdCheck = MutableLiveData(false)
+    private val loginButton: MediatorLiveData<Boolean> = MediatorLiveData()
+    private val loginSuccess = MutableLiveData(false)
 
-    fun increase(){
-        count.value = count.value?.plus(1)
+    init {
+        loginButton.addSource(emailCheck){
+            loginButton.value = _loginButton()
+        }
+        loginButton.addSource(pwdCheck){
+            loginButton.value = _loginButton()
+        }
     }
 
-    fun getCount(): LiveData<Int> = count
+    fun setEmail(setEmail: String){
+        email.value = setEmail
+    }
+
+    fun loginSuccess(){
+        loginSuccess.value = true
+    }
+
+    fun _loginButton(): Boolean{
+        return (emailCheck.value==true) and (pwdCheck.value==true)
+    }
+
+    fun emailCheck(email: String) {
+        emailCheck.value = Patterns.EMAIL_ADDRESS.matcher(email!!).matches()
+    }
+
+    fun pwdCheck(pwd: String) {
+        pwdCheck.value = Pattern.matches("^(?=.*\\d)(?=.*[~`!@#$%\\^&*()-])(?=.*[a-zA-Z]).{8,20}$", pwd)
+    }
+
+    fun getEmail(): LiveData<String> = email
+    fun getPwd(): LiveData<String> = pwd
+    fun getEmailCheck(): LiveData<Boolean> = emailCheck
+    fun getPwdCheck(): LiveData<Boolean> = pwdCheck
+    fun getLoginButton(): MediatorLiveData<Boolean> = loginButton
+    fun getLoginSuccess(): LiveData<Boolean> = loginSuccess
 
 }
