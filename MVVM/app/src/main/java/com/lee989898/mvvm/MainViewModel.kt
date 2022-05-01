@@ -17,24 +17,24 @@ class MainViewModel : ViewModel() {
     private val loginSuccess = MutableLiveData(false)
 
     init {
-        loginButton.addSource(emailCheck){
-            loginButton.value = _loginButton()
-        }
-        loginButton.addSource(pwdCheck){
-            loginButton.value = _loginButton()
-        }
+        initLoginButton(emailCheck)
+        initLoginButton(pwdCheck)
     }
 
-    fun setEmail(setEmail: String){
+    fun setEmail(setEmail: String) {
         email.value = setEmail
     }
 
-    fun loginSuccess(){
-        loginSuccess.value = true
+    fun setPwd(setPwd: String) {
+        pwd.value = setPwd
     }
 
-    fun _loginButton(): Boolean{
-        return (emailCheck.value==true) and (pwdCheck.value==true)
+    fun setLoginSuccess(success: Boolean) {
+        loginSuccess.value = success
+    }
+
+    fun getEnabledLoginButton(): Boolean {
+        return (emailCheck.value == true) and (pwdCheck.value == true)
     }
 
     fun emailCheck(email: String) {
@@ -42,7 +42,14 @@ class MainViewModel : ViewModel() {
     }
 
     fun pwdCheck(pwd: String) {
-        pwdCheck.value = Pattern.matches("^(?=.*\\d)(?=.*[~`!@#$%\\^&*()-])(?=.*[a-zA-Z]).{8,20}$", pwd)
+        pwdCheck.value =
+            Pattern.matches("^(?=.*\\d)(?=.*[~`!@#$%\\^&*()-])(?=.*[a-zA-Z]).{8,20}$", pwd)
+    }
+
+    private fun initLoginButton(check: MutableLiveData<Boolean>) {
+        loginButton.addSource(check) {
+            loginButton.value = getEnabledLoginButton()
+        }
     }
 
     fun getEmail(): LiveData<String> = email

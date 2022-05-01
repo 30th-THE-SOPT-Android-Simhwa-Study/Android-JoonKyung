@@ -18,51 +18,45 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.loginModel = viewModel
-        binding.lifecycleOwner = this
-
+        binding.loginViewModel = viewModel
+        binding.lifecycleOwner = this@MainActivity
 
         viewModel.getLoginSuccess().observe(this, Observer<Boolean> { result ->
             if (result == true) {
-                viewModel.setEmail(binding.email.text.toString())
                 val intent = Intent(this, HomeActivity::class.java)
-                intent.putExtra("email", UserData(viewModel.getEmail().value.toString()))
+                intent.putExtra("email", UserData(viewModel.getEmail().value.toString(), "1234"))
                 startActivity(intent)
             }
         })
 
-
-
         binding.button.setOnClickListener {
-            viewModel.loginSuccess()
+            viewModel.setLoginSuccess(true)
         }
 
         binding.button2.setOnClickListener {
             startActivity(Intent(this, JoinActivity::class.java))
         }
 
-        viewModel.getLoginButton().observe(this, Observer {
-
-        })
-
         binding.email.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                viewModel.setEmail(binding.email.text.toString())
                 viewModel.emailCheck(binding.email.text.toString())
             }
 
             override fun afterTextChanged(p0: Editable?) {
             }
-        }
-        )
+
+        })
 
         binding.password.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                viewModel.setPwd(binding.password.text.toString())
                 viewModel.pwdCheck(binding.password.text.toString())
             }
 
