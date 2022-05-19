@@ -4,9 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.google.gson.JsonParser
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
@@ -18,6 +16,8 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
+    private val job = Job()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -27,8 +27,13 @@ class MainActivity : AppCompatActivity() {
 
             updateLottoBallImage(createLottoNumbers())
 
-            CoroutineScope(Dispatchers.IO).launch {
-                binding.tvWinning.text = getLottoNumbers().toString()
+            CoroutineScope(Dispatchers.IO + job).launch {
+
+                val result = getLottoNumbers()
+
+                withContext(Dispatchers.Main){
+                    binding.tvWinning.text = result.toString()
+                }
             }
         }
     }
@@ -81,6 +86,7 @@ class MainActivity : AppCompatActivity() {
                 for (i in 1..6) {
                     val lottoNumber = jsonObject.get("drwtNo$i").asInt
                     lottoNumbers.add(lottoNumber)
+                    delay(10000)
                 }
                 val bonusNumber = jsonObject.get("bnusNo").asInt
                 lottoNumbers.add(bonusNumber)
@@ -92,8 +98,11 @@ class MainActivity : AppCompatActivity() {
 
         return lottoNumbers
     }
+
+    override fun onDestroy() {
+        job.cancel("job_cancel", InterruptedException("화면회전"))
+        super.onDestroy()
+    }
 }
 
-
-
-// job 객체를 선언하여 Activity가 종료(destory) 될 때 수행 중인 job이 있다면 취소해주기
+// 현재 보여지는 코드에서 job 객체 생성 및 화면 destory할 때 반환하는 코드 추가하기
