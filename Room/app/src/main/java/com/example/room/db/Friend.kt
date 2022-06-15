@@ -15,5 +15,8 @@ data class Friend(
     var name: String,
 
     @ColumnInfo(name = "friend_email")
-    var email: String
+    var email: String,
+
+    @ColumnInfo(name = "friend_mbti")
+    var mbti: String?
 )

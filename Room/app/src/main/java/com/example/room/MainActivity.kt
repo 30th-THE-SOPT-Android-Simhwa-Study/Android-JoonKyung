@@ -26,11 +26,9 @@ class MainActivity : AppCompatActivity() {
         val repository = FriendRepository(dao)
         val friendViewModelFactory = FriendViewModelFactory(repository)
 
-        friendViewModel =
-            ViewModelProvider(this, friendViewModelFactory)[FriendViewModel::class.java]
+        friendViewModel = ViewModelProvider(this, friendViewModelFactory)[FriendViewModel::class.java]
         binding.friendViewModel = friendViewModel
         binding.lifecycleOwner = this
-
         initRecyclerView()
 
         friendViewModel.message.observe(this, Observer {

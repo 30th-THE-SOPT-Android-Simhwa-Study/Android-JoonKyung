@@ -20,12 +20,12 @@ class FriendViewModel(private val friendRepository: FriendRepository) : ViewMode
 
     val inputName = MutableLiveData<String?>()
     val inputEmail = MutableLiveData<String?>()
+    var inputMBTI = MutableLiveData<String?>()
 
     var saveOrUpdateButtonText = MutableLiveData<String>()
     val deleteAllOrDeleteButtonText = MutableLiveData<String>()
 
     private val statusMessage = MutableLiveData<Event<String>>()
-
     val message: LiveData<Event<String>> get() = statusMessage
 
     init {
@@ -39,19 +39,24 @@ class FriendViewModel(private val friendRepository: FriendRepository) : ViewMode
             statusMessage.value = Event("친구 이름을 입력해주세요.")
         } else if (inputEmail.value == null) {
             statusMessage.value = Event("친구 이메일을 입력해주세요.")
+        } else if (inputMBTI.value == null) {
+            statusMessage.value = Event("친구 MBTI를 입력해주세요.")
         } else if (!Patterns.EMAIL_ADDRESS.matcher(inputEmail.value!!).matches()) {
             statusMessage.value = Event("이메일 형식이 잘못됐습니다.")
         } else {
             if (isUpdateOrDelete) {
                 friendToUpdateOrDelete.name = inputName.value!!
                 friendToUpdateOrDelete.email = inputEmail.value!!
+                friendToUpdateOrDelete.mbti = inputMBTI.value!!
                 updateFriend(friendToUpdateOrDelete)
             } else {
                 val name = inputName.value!!
                 val email = inputEmail.value!!
-                insertFriend(Friend(0, name, email))
+                val mbti = inputMBTI.value!!
+                insertFriend(Friend(0, name, email, mbti))
                 inputName.value = null
                 inputEmail.value = null
+                inputMBTI.value = null
             }
         }
     }
@@ -81,6 +86,7 @@ class FriendViewModel(private val friendRepository: FriendRepository) : ViewMode
             if (noOfRows > 0) {
                 inputName.value = null
                 inputEmail.value = null
+                inputMBTI.value = null
                 isUpdateOrDelete = false
                 saveOrUpdateButtonText.value = "저장"
                 deleteAllOrDeleteButtonText.value = "모두 삭제"
@@ -98,6 +104,7 @@ class FriendViewModel(private val friendRepository: FriendRepository) : ViewMode
             if (noOfRowsDeleted > 0) {
                 inputName.value = null
                 inputEmail.value = null
+                inputMBTI.value = null
                 isUpdateOrDelete = false
                 saveOrUpdateButtonText.value = "저장"
                 deleteAllOrDeleteButtonText.value = "모두 삭제"
@@ -123,10 +130,10 @@ class FriendViewModel(private val friendRepository: FriendRepository) : ViewMode
     fun initUpdateAndDelete(friend: Friend) {
         inputName.value = friend.name
         inputEmail.value = friend.email
+        inputMBTI.value = friend.mbti
         isUpdateOrDelete = true
         friendToUpdateOrDelete = friend
         saveOrUpdateButtonText.value = "업데이트"
         deleteAllOrDeleteButtonText.value = "삭제"
     }
-
 }

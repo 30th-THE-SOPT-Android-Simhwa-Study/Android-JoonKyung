@@ -39,6 +39,7 @@ class FriendViewHolder(val binding: ListItemBinding) : RecyclerView.ViewHolder(b
     fun bind(friend: Friend, clickListener: (Friend) -> Unit) {
         binding.listItemNameTv.text = friend.name
         binding.listItemEmailTv.text = friend.email
+        binding.listItemMbtiTv.text = friend.mbti
         binding.listItemLl.setOnClickListener {
             clickListener(friend)
         }
