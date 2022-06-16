@@ -7,12 +7,13 @@ import com.example.room.data.models.types.MBTI
 import com.example.room.data.models.types.MBTIFeatures
 import com.example.room.data.local.db.Friend
 import com.example.room.domain.repository.FriendRepository
+import com.example.room.domain.usecase.GetMBTIFeaturesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class FriendDetailViewModel @Inject constructor(
-    private val friendRepository: FriendRepository
+    private val getMBTIFeaturesUseCase: GetMBTIFeaturesUseCase
 ) : ViewModel() {
 
     private val friend = MutableLiveData<Friend?>()
@@ -24,7 +25,7 @@ class FriendDetailViewModel @Inject constructor(
     fun getFriend(): LiveData<Friend?> = friend
 
     fun getMBTIFeatures(mbti: MBTI?): List<MBTIFeatures> {
-        return friendRepository.getMBTIFeatures(mbti)
+        return getMBTIFeaturesUseCase.execute(mbti)
     }
 
     companion object {

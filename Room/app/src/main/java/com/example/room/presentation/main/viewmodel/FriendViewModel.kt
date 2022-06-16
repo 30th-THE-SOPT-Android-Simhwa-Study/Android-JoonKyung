@@ -5,6 +5,7 @@ import androidx.lifecycle.*
 import com.example.room.data.models.types.MBTI
 import com.example.room.data.local.db.Friend
 import com.example.room.domain.repository.FriendRepository
+import com.example.room.domain.usecase.*
 import com.example.room.util.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
@@ -13,11 +14,17 @@ import safeValueOf
 import javax.inject.Inject
 
 @HiltViewModel
-class FriendViewModel @Inject constructor(private val friendRepository: FriendRepository) :
+class FriendViewModel @Inject constructor(
+    private val insertFriendUseCase: InsertFriendUseCase,
+    private val updateFriendUseCase: UpdateFriendUseCase,
+    private val deleteFriendUseCase: DeleteFriendUseCase,
+    private val getAllFriendUseCase: GetAllFriendUseCase,
+    private val deleteAllFriendUseCase: DeleteAllFriendUseCase
+) :
     ViewModel() {
 
     fun getSaveFriends() = liveData {
-        friendRepository.getAllFriends().collect {
+        getAllFriendUseCase.execute().collect {
             emit(it)
         }
     }
@@ -85,7 +92,7 @@ class FriendViewModel @Inject constructor(private val friendRepository: FriendRe
 
     fun insertFriend(friend: Friend) {
         viewModelScope.launch {
-            val newRowId = friendRepository.insertFriend(friend)
+            val newRowId = insertFriendUseCase.execute(friend)
             if (newRowId > -1) {
                 statusMessage.value = Event("$newRowId 친구 추가 성공 ")
             } else {
@@ -96,7 +103,7 @@ class FriendViewModel @Inject constructor(private val friendRepository: FriendRe
 
     fun updateFriend(friend: Friend) {
         viewModelScope.launch {
-            val noOfRows = friendRepository.updateFriend(friend)
+            val noOfRows = updateFriendUseCase.execute(friend)
             if (noOfRows > 0) {
                 inputName.value = null
                 inputEmail.value = null
@@ -114,7 +121,7 @@ class FriendViewModel @Inject constructor(private val friendRepository: FriendRe
 
     fun deleteFriend(friend: Friend) {
         viewModelScope.launch {
-            val noOfRowsDeleted = friendRepository.deleteFriend(friend)
+            val noOfRowsDeleted = deleteFriendUseCase.execute(friend)
             if (noOfRowsDeleted > 0) {
                 inputName.value = null
                 inputEmail.value = null
@@ -132,7 +139,7 @@ class FriendViewModel @Inject constructor(private val friendRepository: FriendRe
 
     fun deleteAll() {
         viewModelScope.launch {
-            val noOfRowsDeleted = friendRepository.deleteAll()
+            val noOfRowsDeleted = deleteAllFriendUseCase.execute()
             if (noOfRowsDeleted > 0) {
                 statusMessage.value = Event("$noOfRowsDeleted 친구 모두 삭제 성공")
             } else {

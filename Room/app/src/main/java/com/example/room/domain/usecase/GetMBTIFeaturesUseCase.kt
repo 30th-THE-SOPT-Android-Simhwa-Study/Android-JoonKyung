@@ -7,5 +7,5 @@ import com.example.room.domain.repository.FriendRepository
 class GetMBTIFeaturesUseCase(
     private val friendRepository: FriendRepository
 ) {
-    fun execute(mbti: MBTI): List<MBTIFeatures> = friendRepository.getMBTIFeatures(mbti)
+    fun execute(mbti: MBTI?): List<MBTIFeatures> = friendRepository.getMBTIFeatures(mbti)
 }
