@@ -7,7 +7,7 @@
 
         <variable
             name="friendViewModel"
-            type="com.example.room.FriendViewModel" />
+            type="com.example.room.presentation.main.viewmodel.FriendViewModel" />
 
     </data>
 
@@ -16,7 +16,7 @@
         android:layout_height="match_parent"
         android:layout_margin="15dp"
         android:orientation="vertical"
-        tools:context=".MainActivity">
+        tools:context=".presentation.main.MainActivity">
 
         <EditText
             android:id="@+id/main_name_et"

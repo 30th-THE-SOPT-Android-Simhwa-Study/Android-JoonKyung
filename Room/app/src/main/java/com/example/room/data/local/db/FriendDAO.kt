@@ -1,6 +1,7 @@
-package com.example.room.db
+package com.example.room.data.local.db
 
 import androidx.room.*
+import com.example.room.data.local.db.Friend
 import kotlinx.coroutines.flow.Flow
 
 @Dao

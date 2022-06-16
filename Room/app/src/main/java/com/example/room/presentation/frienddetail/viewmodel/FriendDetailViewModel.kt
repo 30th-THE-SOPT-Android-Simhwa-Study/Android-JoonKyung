@@ -1,11 +1,11 @@
-package com.example.room
+package com.example.room.presentation.frienddetail.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.room.data.models.types.MBTI
 import com.example.room.data.models.types.MBTIFeatures
-import com.example.room.db.Friend
+import com.example.room.data.local.db.Friend
 import com.example.room.domain.repository.FriendRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

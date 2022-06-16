@@ -1,16 +1,14 @@
-package com.example.room
+package com.example.room.presentation.frienddetail
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
-import com.example.room.data.models.types.MBTI
+import com.example.room.R
 import com.example.room.databinding.ActivityFriendDetailBinding
-import com.example.room.db.Friend
+import com.example.room.data.local.db.Friend
+import com.example.room.presentation.frienddetail.viewmodel.FriendDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import safeValueOf
 
 @AndroidEntryPoint
 class FriendDetailActivity : AppCompatActivity() {

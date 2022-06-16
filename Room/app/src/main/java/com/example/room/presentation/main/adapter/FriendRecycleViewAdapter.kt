@@ -1,15 +1,14 @@
-package com.example.room
+package com.example.room.presentation.main.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.room.data.models.types.MBTI
+import com.example.room.R
 import com.example.room.databinding.ListItemBinding
-import com.example.room.db.Friend
-import safeValueOf
+import com.example.room.data.local.db.Friend
+import com.example.room.presentation.frienddetail.FriendDetailActivity
 
 class FriendRecycleViewAdapter(
     private val clickListener: (Friend) -> Unit

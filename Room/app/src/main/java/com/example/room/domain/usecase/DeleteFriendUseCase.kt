@@ -1,6 +1,6 @@
 package com.example.room.domain.usecase
 
-import com.example.room.db.Friend
+import com.example.room.data.local.db.Friend
 import com.example.room.domain.repository.FriendRepository
 
 class DeleteFriendUseCase(

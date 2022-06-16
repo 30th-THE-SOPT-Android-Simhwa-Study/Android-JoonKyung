@@ -1,10 +1,9 @@
 package com.example.room.di
 
-import android.app.Application
 import android.content.Context
 import androidx.room.Room
-import com.example.room.db.FriendDAO
-import com.example.room.db.FriendDatabase
+import com.example.room.data.local.db.FriendDAO
+import com.example.room.data.local.db.FriendDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,10 +1,11 @@
-package com.example.room
+package com.example.room.presentation.main.viewmodel
 
 import android.util.Patterns
 import androidx.lifecycle.*
 import com.example.room.data.models.types.MBTI
-import com.example.room.db.Friend
+import com.example.room.data.local.db.Friend
 import com.example.room.domain.repository.FriendRepository
+import com.example.room.util.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch

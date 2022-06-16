@@ -1,4 +1,4 @@
-package com.example.room
+package com.example.room.util
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

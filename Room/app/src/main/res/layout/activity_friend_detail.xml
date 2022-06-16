@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.room.FriendDetailViewModel" />
+            type="com.example.room.presentation.frienddetail.viewmodel.FriendDetailViewModel" />
     </data>
 
     <LinearLayout

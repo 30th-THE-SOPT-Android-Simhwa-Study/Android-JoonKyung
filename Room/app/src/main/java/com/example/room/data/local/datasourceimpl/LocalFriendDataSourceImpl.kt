@@ -3,8 +3,8 @@ package com.example.room.data.local.datasourceimpl
 import com.example.room.data.local.datasource.LocalFriendDataSource
 import com.example.room.data.models.types.MBTI
 import com.example.room.data.models.types.MBTIFeatures
-import com.example.room.db.Friend
-import com.example.room.db.FriendDAO
+import com.example.room.data.local.db.Friend
+import com.example.room.data.local.db.FriendDAO
 import kotlinx.coroutines.flow.Flow
 
 class LocalFriendDataSourceImpl(

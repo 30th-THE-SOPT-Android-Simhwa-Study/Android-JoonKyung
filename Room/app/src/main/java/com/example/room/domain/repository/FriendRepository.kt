@@ -2,7 +2,7 @@ package com.example.room.domain.repository
 
 import com.example.room.data.models.types.MBTI
 import com.example.room.data.models.types.MBTIFeatures
-import com.example.room.db.Friend
+import com.example.room.data.local.db.Friend
 import kotlinx.coroutines.flow.Flow
 
 interface FriendRepository {
