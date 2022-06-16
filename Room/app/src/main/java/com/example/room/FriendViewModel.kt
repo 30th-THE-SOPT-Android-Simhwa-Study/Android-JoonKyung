@@ -2,15 +2,21 @@ package com.example.room
 
 import android.util.Patterns
 import androidx.lifecycle.*
+import com.example.room.data.models.types.MBTI
 import com.example.room.db.Friend
-import com.example.room.db.FriendRepository
+import com.example.room.domain.repository.FriendRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import safeValueOf
+import javax.inject.Inject
 
-class FriendViewModel(private val friendRepository: FriendRepository) : ViewModel() {
+@HiltViewModel
+class FriendViewModel @Inject constructor(private val friendRepository: FriendRepository) :
+    ViewModel() {
 
     fun getSaveFriends() = liveData {
-        friendRepository.friends.collect {
+        friendRepository.getAllFriends().collect {
             emit(it)
         }
     }
@@ -47,13 +53,20 @@ class FriendViewModel(private val friendRepository: FriendRepository) : ViewMode
             if (isUpdateOrDelete) {
                 friendToUpdateOrDelete.name = inputName.value!!
                 friendToUpdateOrDelete.email = inputEmail.value!!
-                friendToUpdateOrDelete.mbti = inputMBTI.value!!
+                friendToUpdateOrDelete.mbti = safeValueOf<MBTI>(inputMBTI.value?.uppercase())
                 updateFriend(friendToUpdateOrDelete)
             } else {
                 val name = inputName.value!!
                 val email = inputEmail.value!!
                 val mbti = inputMBTI.value!!
-                insertFriend(Friend(0, name, email, mbti))
+                insertFriend(
+                    Friend(
+                        0,
+                        name,
+                        email,
+                        safeValueOf<MBTI>(inputMBTI.value?.uppercase())
+                    )
+                )
                 inputName.value = null
                 inputEmail.value = null
                 inputMBTI.value = null
@@ -130,7 +143,7 @@ class FriendViewModel(private val friendRepository: FriendRepository) : ViewMode
     fun initUpdateAndDelete(friend: Friend) {
         inputName.value = friend.name
         inputEmail.value = friend.email
-        inputMBTI.value = friend.mbti
+        inputMBTI.value = safeValueOf<MBTI>(inputMBTI.value?.uppercase()).toString()
         isUpdateOrDelete = true
         friendToUpdateOrDelete = friend
         saveOrUpdateButtonText.value = "업데이트"

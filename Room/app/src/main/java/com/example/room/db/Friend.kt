@@ -1,9 +1,13 @@
 package com.example.room.db
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.room.data.models.types.MBTI
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity(tableName = "friend_data_table")
 data class Friend(
 
@@ -18,5 +22,5 @@ data class Friend(
     var email: String,
 
     @ColumnInfo(name = "friend_mbti")
-    var mbti: String?
-)
+    var mbti: MBTI?
+): Parcelable

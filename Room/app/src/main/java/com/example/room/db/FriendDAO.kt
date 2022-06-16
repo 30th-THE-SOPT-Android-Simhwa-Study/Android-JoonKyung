@@ -20,5 +20,4 @@ interface FriendDAO {
 
     @Query("SELECT * FROM friend_data_table")
     fun getAllFriends(): Flow<List<Friend>>
-
 }

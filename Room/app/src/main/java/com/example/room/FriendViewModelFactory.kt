@@ -2,7 +2,7 @@ package com.example.room
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.room.db.FriendRepository
+import com.example.room.domain.repository.FriendRepository
 import java.lang.IllegalArgumentException
 
 class FriendViewModelFactory(private val friendRepository: FriendRepository): ViewModelProvider.Factory {
