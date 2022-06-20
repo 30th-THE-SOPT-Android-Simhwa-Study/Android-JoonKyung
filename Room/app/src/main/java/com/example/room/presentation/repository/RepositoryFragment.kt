@@ -22,7 +22,7 @@ class RepositoryFragment :
         super.onViewCreated(view, savedInstanceState)
         observeRepositoryData()
         initRepositoryAdapter()
-        repositoryViewModel.getRepositoryData()
+        repositoryViewModel.getGithubFollower()
     }
 
     private fun observeRepositoryData() {

@@ -34,7 +34,7 @@ class RepositoryAdapter :
                 oldItem: RepositoryData,
                 newItem: RepositoryData
             ): Boolean {
-                return oldItem.title == newItem.title
+                return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(

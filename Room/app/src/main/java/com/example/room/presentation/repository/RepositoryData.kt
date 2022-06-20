@@ -1,6 +1,7 @@
 package com.example.room.presentation.repository
 
 data class RepositoryData(
-    val title: String,
-    val part: String
+    val id: Int,
+    val full_name: String,
+    val name: String
 )
