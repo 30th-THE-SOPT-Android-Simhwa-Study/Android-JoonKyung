@@ -5,10 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.room.data.remote.github.ResponseRepo
 import com.example.room.databinding.ItemRepositoryListBinding
 
 class RepositoryAdapter :
-    ListAdapter<RepositoryData, RepositoryAdapter.FollowerViewHolder>(diffUtil) {
+    ListAdapter<ResponseRepo, RepositoryAdapter.FollowerViewHolder>(diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FollowerViewHolder {
         val binding =
@@ -23,23 +24,23 @@ class RepositoryAdapter :
     class FollowerViewHolder(
         private val binding: ItemRepositoryListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: RepositoryData) {
+        fun bind(data: ResponseRepo) {
             binding.repositoryRecycler = data
         }
     }
 
     companion object {
-        val diffUtil = object : DiffUtil.ItemCallback<RepositoryData>() {
+        val diffUtil = object : DiffUtil.ItemCallback<ResponseRepo>() {
             override fun areItemsTheSame(
-                oldItem: RepositoryData,
-                newItem: RepositoryData
+                oldItem: ResponseRepo,
+                newItem: ResponseRepo
             ): Boolean {
                 return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(
-                oldItem: RepositoryData,
-                newItem: RepositoryData
+                oldItem: ResponseRepo,
+                newItem: ResponseRepo
             ): Boolean {
                 return oldItem == newItem
             }

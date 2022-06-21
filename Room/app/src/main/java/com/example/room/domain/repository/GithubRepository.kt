@@ -2,6 +2,8 @@ package com.example.room.domain.repository
 
 import com.example.room.data.remote.github.ResponseGitHubFollower
 import com.example.room.data.remote.github.ResponseRepo
+import kotlinx.coroutines.flow.Flow
+import retrofit2.Response
 
 interface GithubRepository {
 
@@ -11,5 +13,5 @@ interface GithubRepository {
 
     suspend fun getGithubRepo(
         username: String
-    ): Result<List<ResponseRepo>>
+    ): Response<List<ResponseRepo>>
 }

@@ -2,6 +2,8 @@ package com.example.room.data.remote.api
 
 import com.example.room.data.remote.github.ResponseGitHubFollower
 import com.example.room.data.remote.github.ResponseRepo
+import kotlinx.coroutines.flow.Flow
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -15,5 +17,5 @@ interface GithubService {
     @GET("users/{username}/repos")
     suspend fun getRepository(
         @Path("username") username: String
-    ): List<ResponseRepo>
+    ): Response<List<ResponseRepo>>
 }

@@ -7,7 +7,7 @@
 
         <variable
             name="repositoryRecycler"
-            type="com.example.room.presentation.repository.RepositoryData" />
+            type="com.example.room.data.remote.github.ResponseRepo" />
 
     </data>
 

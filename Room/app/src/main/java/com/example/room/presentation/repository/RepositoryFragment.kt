@@ -6,10 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.room.R
 import com.example.room.databinding.FragmentRepositoryBinding
 import com.example.room.util.binding.BindingFragment
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class RepositoryFragment :
@@ -20,16 +25,24 @@ class RepositoryFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        observeRepositoryData()
+//        observeRepositoryData()
         initRepositoryAdapter()
-        repositoryViewModel.getGithubFollower()
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                repositoryViewModel.getRepository.collect {
+                    repositoryAdapter.submitList(it)
+                }
+            }
+        }
+
     }
 
-    private fun observeRepositoryData() {
-        repositoryViewModel.repositoryData.observe(viewLifecycleOwner) {
-            repositoryAdapter.submitList(it)
-        }
-    }
+//    private fun observeRepositoryData() {
+//        repositoryViewModel.repositoryData.observe(viewLifecycleOwner) {
+//            repositoryAdapter.submitList(it)
+//        }
+//    }
 
     private fun initRepositoryAdapter() {
         repositoryAdapter = RepositoryAdapter()
