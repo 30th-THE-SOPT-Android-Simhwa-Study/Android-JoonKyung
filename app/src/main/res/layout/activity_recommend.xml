@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:overScrollMode="never">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".RecommendActivity">
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="82dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="55dp"
+            android:src="@drawable/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_explain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/abeezee_regular"
+            android:text="나의 다이어터 유형은?\n\n선호 식습관으로 추천하는\n\n맞춤형 식당 추천"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_logo" />
+
+        <ImageView
+            android:id="@+id/iv_group"
+            android:layout_width="349dp"
+            android:layout_height="238dp"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="17dp"
+            android:src="@drawable/group"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_explain" />
+
+        <Button
+            android:id="@+id/bt_store"
+            android:layout_width="314dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="88dp"
+            android:background="@drawable/bt_round_31_white"
+            android:elevation="4dp"
+            android:fontFamily="@font/abeezee_regular"
+            android:stateListAnimator="@null"
+            android:text="내 주변 맛집 보기"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_group" />
+
+        <Button
+            android:id="@+id/bt_type"
+            android:layout_width="314dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginBottom="55dp"
+            android:background="@drawable/bt_round_31_gray"
+            android:elevation="4dp"
+            android:fontFamily="@font/abeezee_regular"
+            android:stateListAnimator="@null"
+            android:text="유형 검사 받으러 가기"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bt_store" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

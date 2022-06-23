@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/drawable/bt_round_30.xml" value="0.1525" />
+        <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/drawable/bt_round_31_gray.xml" value="0.1525" />
+        <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/drawable/bt_round_31_white.xml" value="0.1525" />
+        <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/drawable/et_round_30.xml" value="0.1525" />
+        <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/font/abeezee_font.xml" value="0.2784615384615385" />
+        <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/layout/activity_login.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/layout/activity_recommend.xml" value="0.2" />
+        <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/layout/activity_sign_up.xml" value="0.6" />
+        <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/layout/activity_splash.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/layout/explain_list_item.xml" value="0.2526041666666667" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/tv_login_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/abeezee_regular"
+        android:text="로그인"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_circle_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/circle_gray"
+        app:layout_constraintEnd_toStartOf="@id/iv_circle_center"
+        app:layout_constraintTop_toBottomOf="@id/tv_login_logo" />
+
+    <ImageView
+        android:id="@+id/iv_circle_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/circle_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_login_logo" />
+
+    <ImageView
+        android:id="@+id/iv_circle_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/circle_gray"
+        app:layout_constraintStart_toEndOf="@id/iv_circle_center"
+        app:layout_constraintTop_toBottomOf="@id/tv_login_logo" />
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/et_round_30"
+        android:hint="이메일"
+        android:paddingStart="20dp"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@id/iv_circle_center" />
+
+    <EditText
+        android:id="@+id/et_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/et_round_30"
+        android:hint="비밀번호"
+        android:paddingStart="20dp"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@id/et_email" />
+
+    <TextView
+        android:id="@+id/tv_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/abeezee_regular"
+        android:text="회원가입 하러가기"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_pwd" />
+
+    <Button
+        android:id="@+id/bt_finish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="43dp"
+        android:background="@drawable/bt_round_30_gray"
+        android:fontFamily="@font/abeezee_regular"
+        android:text="완료"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
