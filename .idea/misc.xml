@@ -8,12 +8,17 @@
         <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/drawable/bt_round_31_white.xml" value="0.1525" />
         <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/drawable/et_round_30.xml" value="0.1525" />
         <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/font/abeezee_font.xml" value="0.2784615384615385" />
+        <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/layout/activity_home.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/layout/activity_login.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/layout/activity_recommend.xml" value="0.2" />
         <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/layout/activity_sign_up.xml" value="0.6" />
         <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/layout/activity_splash.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/layout/explain_list_item.xml" value="0.2526041666666667" />
+        <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/layout/fragment_curator.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/layout/fragment_map.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/layout/fragment_profile.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/joon_/Desktop/helpme/Android-JoonKyung/app/src/main/res/menu/menu.xml" value="0.2526041666666667" />
       </map>
     </option>
   </component>
