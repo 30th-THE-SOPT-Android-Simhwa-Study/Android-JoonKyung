@@ -1,4 +1,4 @@
-package com.example.helpme
+package com.example.helpme.auth
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

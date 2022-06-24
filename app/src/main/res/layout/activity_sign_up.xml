@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".SignUpActivity">
+        tools:context=".auth.SignUpActivity">
 
         <TextView
             android:id="@+id/tv_sign_up_logo"

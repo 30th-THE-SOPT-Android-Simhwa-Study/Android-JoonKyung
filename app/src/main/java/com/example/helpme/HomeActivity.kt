@@ -1,10 +1,14 @@
 package com.example.helpme
 
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.view.get
+import android.util.Base64
+import android.util.Log
 import androidx.viewpager2.widget.ViewPager2
+import com.example.helpme.curator.CuratorFragment
 import com.example.helpme.databinding.ActivityHomeBinding
+import java.security.MessageDigest
 
 class HomeActivity : AppCompatActivity() {
 

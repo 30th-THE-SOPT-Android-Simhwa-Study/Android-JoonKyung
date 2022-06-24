@@ -1,8 +1,9 @@
-package com.example.helpme
+package com.example.helpme.auth
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.helpme.HomeActivity
 import com.example.helpme.databinding.ActivityRecommendBinding
 
 class RecommendActivity : AppCompatActivity() {
