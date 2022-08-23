@@ -6,7 +6,7 @@
     <data>
 
         <variable
-            name="viewModel"
+            name="homeViewModel"
             type="com.lee989898.shimhwastudy.HomeViewModel" />
     </data>
 
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/size_spacing_36"
             android:fontFamily="@font/suit_m"
-            android:text="@{viewModel.userInfo.email}"
+            android:text="@{homeViewModel.userInfo.email}"
             android:textColor="@color/gray_700"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"

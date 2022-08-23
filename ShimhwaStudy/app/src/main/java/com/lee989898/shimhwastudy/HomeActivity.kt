@@ -14,7 +14,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
-        binding.viewModel = viewModel
+        binding.homeViewModel = viewModel
         binding.lifecycleOwner = this@HomeActivity
 
         intent.getParcelableExtra<UserInfo>(USER_INFO)?.let {

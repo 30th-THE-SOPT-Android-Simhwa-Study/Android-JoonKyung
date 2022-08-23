@@ -41,9 +41,7 @@ class LoginViewModel : ViewModel() {
     }
 
     fun signIn() {
-
         _userInfo = UserInfo(userEmail.value.toString(), userPassword.value.toString())
-
         _isCompletedSignIn.value = true
     }
 
