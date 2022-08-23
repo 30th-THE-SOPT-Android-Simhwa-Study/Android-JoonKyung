@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/joon_/AndroidStudioProjects/dqdq/Android-JoonKyung/ShimhwaStudy/app/src/main/res/drawable/rectangle_grey_radius_5.xml" value="0.186" />
+        <entry key="..\:/Users/joon_/AndroidStudioProjects/dqdq/Android-JoonKyung/ShimhwaStudy/app/src/main/res/drawable/rectangle_radius_25.xml" value="0.186" />
+        <entry key="..\:/Users/joon_/AndroidStudioProjects/dqdq/Android-JoonKyung/ShimhwaStudy/app/src/main/res/drawable/selector_btn_login.xml" value="0.186" />
+        <entry key="..\:/Users/joon_/AndroidStudioProjects/dqdq/Android-JoonKyung/ShimhwaStudy/app/src/main/res/drawable/selector_text_login.xml" value="0.186" />
+        <entry key="..\:/Users/joon_/AndroidStudioProjects/dqdq/Android-JoonKyung/ShimhwaStudy/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/Users/joon_/AndroidStudioProjects/dqdq/Android-JoonKyung/ShimhwaStudy/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/joon_/AndroidStudioProjects/dqdq/Android-JoonKyung/ShimhwaStudy/app/src/main/res/layout/activity_main.xml" value="0.1125" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
