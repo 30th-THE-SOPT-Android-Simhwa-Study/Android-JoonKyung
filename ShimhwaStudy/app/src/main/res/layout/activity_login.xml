@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.lee989898.shimhwastudy.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".LoginActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/size_spacing_16" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/size_spacing_16" />
+
+        <TextView
+            android:id="@+id/tv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_spacing_16"
+            android:fontFamily="@font/montserrat_b"
+            android:text="@string/login_logo"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/size_spacing_16"
+            android:layout_marginTop="@dimen/size_spacing_28"
+            android:afterTextChanged="@{()->viewModel.checkEmailFormat()}"
+            android:autofillHints="emailAddress"
+            android:background="@drawable/rectangle_gray_radius_5"
+            android:fontFamily="@font/suit_m"
+            android:hint="@string/login_email"
+            android:inputType="textEmailAddress"
+            android:paddingVertical="@dimen/size_spacing_12"
+            android:paddingStart="@dimen/size_spacing_12"
+            android:paddingEnd="@dimen/size_spacing_12"
+            android:text="@={viewModel.userEmail}"
+            android:textColor="@color/gray_200"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/tv_logo" />
+
+        <TextView
+            android:id="@+id/tv_email_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_spacing_5"
+            android:fontFamily="@font/suit_m"
+            android:invisibility="@{viewModel.emailFormatCheck}"
+            android:text="@string/login_email_check"
+            android:textColor="@color/gray_200"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintTop_toBottomOf="@id/et_email" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/size_spacing_16"
+            android:layout_marginTop="@dimen/size_spacing_28"
+            android:afterTextChanged="@{()->viewModel.checkPasswordFormat()}"
+            android:autofillHints="password"
+            android:background="@drawable/rectangle_gray_radius_5"
+            android:fontFamily="@font/suit_m"
+            android:hint="@string/login_password"
+            android:inputType="textPassword"
+            android:paddingVertical="@dimen/size_spacing_12"
+            android:paddingStart="@dimen/size_spacing_12"
+            android:paddingEnd="@dimen/size_spacing_12"
+            android:text="@={viewModel.userPassword}"
+            android:textColor="@color/gray_200"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/tv_email_check" />
+
+        <TextView
+            android:id="@+id/et_password_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_spacing_5"
+            android:fontFamily="@font/suit_m"
+            android:text="@string/login_password_check"
+            android:textColor="@color/gray_200"
+            android:textSize="12sp"
+            android:visibility="@{viewModel.passwordFormatCheck ? View.INVISIBLE : View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="@id/gl_start"
+            app:layout_constraintTop_toBottomOf="@id/et_password" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_spacing_16"
+            android:layout_marginEnd="@dimen/size_spacing_16"
+            android:layout_marginBottom="@dimen/size_spacing_16"
+            android:background="@drawable/rectangle_radius_25"
+            android:backgroundTint="@drawable/selector_btn_login"
+            android:enabled="@{viewModel.isLoginSuccess() ? true : false}"
+            android:onClick="@{()->viewModel.signIn()}"
+            android:paddingVertical="@dimen/size_spacing_16"
+            android:text="@string/login_btn"
+            android:textColor="@drawable/selector_text_login"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
