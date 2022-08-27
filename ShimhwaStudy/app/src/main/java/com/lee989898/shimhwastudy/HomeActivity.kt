@@ -21,7 +21,6 @@ class HomeActivity : AppCompatActivity() {
         intent.getParcelableExtra<UserInfo>(USER_INFO)?.let {
             viewModel.setUserInfo(it)
         }
-
         initListener()
     }
 

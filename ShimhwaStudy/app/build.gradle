@@ -39,14 +39,12 @@ android {
 
 dependencies {
     def lifecycle_version = "2.5.1"
-    def room_version = "2.4.3"
 
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach{
         kotlinOptions{
             freeCompilerArgs +=["-Xjvm-default=all",]
         }
     }
-
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation 'androidx.activity:activity-ktx:1.5.1'

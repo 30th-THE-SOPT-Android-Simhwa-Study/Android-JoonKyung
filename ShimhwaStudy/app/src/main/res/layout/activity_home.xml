@@ -50,6 +50,5 @@
             android:text="@string/home_friend_list"
             android:textColor="@color/white"
             app:layout_constraintTop_toBottomOf="@id/tv_email" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
