@@ -1,5 +1,6 @@
 package com.lee989898.shimhwastudy
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,14 @@ class HomeActivity : AppCompatActivity() {
 
         intent.getParcelableExtra<UserInfo>(USER_INFO)?.let {
             viewModel.setUserInfo(it)
+        }
+
+        initListener()
+    }
+
+    private fun initListener() {
+        binding.btFriendList.setOnClickListener {
+            startActivity(Intent(this, FriendActivity::class.java))
         }
     }
 
