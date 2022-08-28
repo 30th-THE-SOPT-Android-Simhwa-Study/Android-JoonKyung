@@ -1,7 +1,9 @@
-package com.lee989898.shimhwastudy
+package com.lee989898.shimhwastudy.data.models.db.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.lee989898.shimhwastudy.data.models.db.entity.FriendInfo
+import com.lee989898.shimhwastudy.presentation.views.FriendActivity
 
 @Dao
 interface FriendInfoDao {

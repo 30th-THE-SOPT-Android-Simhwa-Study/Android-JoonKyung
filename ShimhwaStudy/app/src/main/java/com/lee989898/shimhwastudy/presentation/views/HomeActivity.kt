@@ -1,11 +1,14 @@
-package com.lee989898.shimhwastudy
+package com.lee989898.shimhwastudy.presentation.views
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.lee989898.shimhwastudy.R
+import com.lee989898.shimhwastudy.domain.models.UserInfo
 import com.lee989898.shimhwastudy.databinding.ActivityHomeBinding
+import com.lee989898.shimhwastudy.presentation.viewmodels.HomeViewModel
 
 class HomeActivity : AppCompatActivity() {
 

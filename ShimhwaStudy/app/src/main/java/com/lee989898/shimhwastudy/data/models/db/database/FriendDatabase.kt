@@ -1,9 +1,12 @@
-package com.lee989898.shimhwastudy
+package com.lee989898.shimhwastudy.data.models.db.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.lee989898.shimhwastudy.data.models.db.entity.FriendInfo
+import com.lee989898.shimhwastudy.data.models.db.dao.FriendInfoDao
+import com.lee989898.shimhwastudy.presentation.views.FriendActivity
 
 @Database(entities = [FriendInfo::class], version = 1)
 abstract class FriendDatabase : RoomDatabase() {

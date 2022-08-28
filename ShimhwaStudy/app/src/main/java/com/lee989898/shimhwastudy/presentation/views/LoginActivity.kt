@@ -1,12 +1,13 @@
-package com.lee989898.shimhwastudy
+package com.lee989898.shimhwastudy.presentation.views
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.LiveData
+import com.lee989898.shimhwastudy.R
 import com.lee989898.shimhwastudy.databinding.ActivityLoginBinding
+import com.lee989898.shimhwastudy.presentation.viewmodels.LoginViewModel
 
 class LoginActivity : AppCompatActivity() {
 

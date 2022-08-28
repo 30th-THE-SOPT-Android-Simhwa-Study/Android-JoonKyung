@@ -1,10 +1,11 @@
-package com.lee989898.shimhwastudy
+package com.lee989898.shimhwastudy.presentation.viewmodels
 
 import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.lee989898.shimhwastudy.domain.models.UserInfo
 import java.util.regex.Pattern
 
 class LoginViewModel : ViewModel() {

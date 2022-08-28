@@ -1,7 +1,8 @@
-package com.lee989898.shimhwastudy
+package com.lee989898.shimhwastudy.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.lee989898.shimhwastudy.domain.repositories.FriendRepository
 
 class FriendViewModelFactory(private val friendRepository: FriendRepository) :
     ViewModelProvider.Factory {
