@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="friendViewModel"
+            type="com.lee989898.shimhwastudy.presentation.viewmodels.FriendViewModel" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".presentation.views.MainActivity">
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/size_spacing_20"
+                android:layout_marginTop="@dimen/size_spacing_20"
+                android:autofillHints="name"
+                android:hint="@string/friend_name"
+                android:inputType="textPersonName"
+                android:text="@={friendViewModel.inputFriendName}"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/size_spacing_20"
+                android:layout_marginTop="@dimen/size_spacing_20"
+                android:autofillHints="emailAddress"
+                android:hint="@string/friend_email"
+                android:inputType="textEmailAddress"
+                android:text="@={friendViewModel.inputFriendEmail}"
+                app:layout_constraintTop_toBottomOf="@id/et_name" />
+
+            <EditText
+                android:id="@+id/et_mbti"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/size_spacing_20"
+                android:layout_marginTop="@dimen/size_spacing_20"
+                android:hint="@string/friend_mbti"
+                android:inputType="text"
+                android:text="@={friendViewModel.inputFriendMBTI}"
+                app:layout_constraintTop_toBottomOf="@id/et_email" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_save_update_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/size_spacing_20"
+                android:layout_marginTop="@dimen/size_spacing_20"
+                android:background="@drawable/rectangle_radius_25"
+                android:backgroundTint="@color/gray_700"
+                android:onClick="@{() -> friendViewModel.saveOrUpdate()}"
+                android:text="@={friendViewModel.saveUpdateButton}"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/et_mbti" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt_clear_delete_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/size_spacing_20"
+                android:layout_marginTop="@dimen/size_spacing_20"
+                android:background="@drawable/rectangle_radius_25"
+                android:backgroundTint="@color/gray_700"
+                android:onClick="@{() -> friendViewModel.clearAllOrDelete()}"
+                android:text="@={friendViewModel.clearDeleteButton}"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/bt_save_update_button" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_friend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/size_spacing_20"
+                android:layout_marginTop="@dimen/size_spacing_20"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/bt_clear_delete_button"
+                tools:listitem="@layout/item_friend_list" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
