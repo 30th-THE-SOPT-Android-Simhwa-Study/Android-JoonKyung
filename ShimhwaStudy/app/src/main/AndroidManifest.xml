@@ -14,13 +14,16 @@
         android:theme="@style/Theme.ShimhwaStudy"
         tools:targetApi="31">
         <activity
-            android:name=".FriendActivity"
+            android:name=".presentation.views.FriendDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".presentation.views.FriendActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".presentation.views.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.views.LoginActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
@@ -30,7 +33,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.views.MainActivity"
             android:exported="false" />
     </application>
 

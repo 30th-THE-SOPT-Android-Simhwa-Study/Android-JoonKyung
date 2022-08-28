@@ -9,13 +9,13 @@
 
         <variable
             name="loginViewModel"
-            type="com.lee989898.shimhwastudy.LoginViewModel" />
+            type="com.lee989898.shimhwastudy.presentation.viewmodels.LoginViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".LoginActivity">
+        tools:context=".presentation.views.LoginActivity">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gl_start"
