@@ -17,6 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class FriendViewModel @Inject constructor(private val friendRepository: FriendRepository) : ViewModel() {
 
+
     val friends = friendRepository.getAllFriends()
 
     var isUpdateOrDelete = false

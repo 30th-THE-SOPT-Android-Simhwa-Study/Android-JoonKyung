@@ -12,6 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FriendDetailViewModel @Inject constructor(private val friendRepository: FriendRepository) : ViewModel() {
+
     private val _friend = MutableLiveData<FriendInfo?>()
     val friend: LiveData<FriendInfo?> get() = _friend
 
