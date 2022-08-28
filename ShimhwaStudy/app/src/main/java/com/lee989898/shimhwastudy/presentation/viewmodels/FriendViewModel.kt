@@ -1,22 +1,27 @@
-package com.lee989898.shimhwastudy
+package com.lee989898.shimhwastudy.presentation.viewmodels
 
 import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.Dispatchers
+import com.lee989898.shimhwastudy.data.models.db.entity.FriendInfo
+import com.lee989898.shimhwastudy.data.models.types.MBTI
+import com.lee989898.shimhwastudy.domain.repositories.FriendRepository
+import com.lee989898.shimhwastudy.utils.Event
+import com.lee989898.shimhwastudy.utils.safeValueOf
 import kotlinx.coroutines.launch
 
 class FriendViewModel(private val friendRepository: FriendRepository) : ViewModel() {
 
-    val friends = friendRepository.friends
+    val friends = friendRepository.getAllFriends()
 
     var isUpdateOrDelete = false
 
     val friendId = MutableLiveData<Int>()
     val inputFriendName = MutableLiveData<String?>()
     val inputFriendEmail = MutableLiveData<String?>()
+    val inputFriendMBTI = MutableLiveData<String?>()
 
     val saveUpdateButton = MutableLiveData("저장")
     val clearDeleteButton = MutableLiveData("전체삭제")
@@ -27,6 +32,7 @@ class FriendViewModel(private val friendRepository: FriendRepository) : ViewMode
     fun saveOrUpdate() {
         val name = inputFriendName.value
         val email = inputFriendEmail.value
+        val mbti = inputFriendMBTI.value
         if (name.isNullOrBlank()) {
             _statusMessage.value = Event("친구 이름을 입력해주세요.")
         } else if (email.isNullOrBlank()) {
@@ -34,12 +40,19 @@ class FriendViewModel(private val friendRepository: FriendRepository) : ViewMode
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             _statusMessage.value = Event("이메일 형식이 잘못됐습니다.")
         } else if (isUpdateOrDelete) {
-            update(FriendInfo(requireNotNull(friendId.value), name, email))
+            update(
+                FriendInfo(
+                    requireNotNull(friendId.value),
+                    name,
+                    email,
+                    safeValueOf<MBTI>(mbti?.uppercase())
+                )
+            )
             initInputValue()
             saveUpdateButton.value = "저장"
             clearDeleteButton.value = "전체삭제"
         } else {
-            insert(FriendInfo(0, name, email))
+            insert(FriendInfo(0, name, email, safeValueOf<MBTI>(mbti?.uppercase())))
             initInputValue()
         }
     }
@@ -50,7 +63,8 @@ class FriendViewModel(private val friendRepository: FriendRepository) : ViewMode
                 FriendInfo(
                     requireNotNull(friendId.value),
                     requireNotNull(inputFriendName.value),
-                    requireNotNull(inputFriendEmail.value)
+                    requireNotNull(inputFriendEmail.value),
+                    requireNotNull(safeValueOf<MBTI>(inputFriendMBTI.value?.uppercase()))
                 )
             )
             initInputValue()
@@ -64,6 +78,7 @@ class FriendViewModel(private val friendRepository: FriendRepository) : ViewMode
     private fun initInputValue() {
         inputFriendName.value = null
         inputFriendEmail.value = null
+        inputFriendMBTI.value = null
         isUpdateOrDelete = false
     }
 
