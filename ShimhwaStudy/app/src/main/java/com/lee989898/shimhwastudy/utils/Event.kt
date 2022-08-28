@@ -1,6 +1,6 @@
-package com.lee989898.shimhwastudy
+package com.lee989898.shimhwastudy.utils
 
-class Event<out T>(private val content: T) {
+open class Event<out T>(private val content: T) {
 
     var hasBeenHandled = false
         private set

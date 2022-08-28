@@ -1,4 +1,4 @@
-package com.lee989898.shimhwastudy
+package com.lee989898.shimhwastudy.utils
 
 import androidx.recyclerview.widget.DiffUtil
 
