@@ -5,7 +5,7 @@ import com.lee989898.shimhwastudy.data.models.db.entity.FriendInfo
 import com.lee989898.shimhwastudy.data.models.types.MBTI
 import com.lee989898.shimhwastudy.data.models.types.MBTIFeatures
 
-class FriendLocalDataSource(private val friendInfoDao: FriendInfoDao) {
+class FriendLocalDataSource @Inject constructor(private val friendInfoDao: FriendInfoDao) {
 
     suspend fun insert(friendInfo: FriendInfo) = friendInfoDao.insertFriendInfo(friendInfo)
     suspend fun update(friendInfo: FriendInfo) = friendInfoDao.updateFriendInfo(friendInfo)

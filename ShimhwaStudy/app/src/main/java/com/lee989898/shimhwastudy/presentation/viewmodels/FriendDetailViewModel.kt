@@ -7,8 +7,12 @@ import com.lee989898.shimhwastudy.data.models.db.entity.FriendInfo
 import com.lee989898.shimhwastudy.data.models.types.MBTI
 import com.lee989898.shimhwastudy.data.models.types.MBTIFeatures
 import com.lee989898.shimhwastudy.domain.repositories.FriendRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class FriendDetailViewModel(private val friendRepository: FriendRepository) : ViewModel() {
+@HiltViewModel
+class FriendDetailViewModel @Inject constructor(private val friendRepository: FriendRepository) : ViewModel() {
+
     private val _friend = MutableLiveData<FriendInfo?>()
     val friend: LiveData<FriendInfo?> get() = _friend
 

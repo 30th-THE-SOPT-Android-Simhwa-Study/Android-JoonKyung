@@ -6,8 +6,10 @@ import com.lee989898.shimhwastudy.data.models.db.entity.FriendInfo
 import com.lee989898.shimhwastudy.data.models.types.MBTI
 import com.lee989898.shimhwastudy.data.models.types.MBTIFeatures
 import com.lee989898.shimhwastudy.domain.repositories.FriendRepository
+import javax.inject.Inject
 
-class FriendRepositoryImpl(private val friendLocalDataSource: FriendLocalDataSource) :
+class FriendRepositoryImpl @Inject constructor(private val friendLocalDataSource: FriendLocalDataSource) :
+
     FriendRepository {
 
     override suspend fun insert(friendInfo: FriendInfo) = friendLocalDataSource.insert(friendInfo)

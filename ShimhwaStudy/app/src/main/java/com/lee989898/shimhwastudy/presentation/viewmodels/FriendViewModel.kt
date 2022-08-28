@@ -10,9 +10,13 @@ import com.lee989898.shimhwastudy.data.models.types.MBTI
 import com.lee989898.shimhwastudy.domain.repositories.FriendRepository
 import com.lee989898.shimhwastudy.utils.Event
 import com.lee989898.shimhwastudy.utils.safeValueOf
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class FriendViewModel(private val friendRepository: FriendRepository) : ViewModel() {
+@HiltViewModel
+class FriendViewModel @Inject constructor(private val friendRepository: FriendRepository) : ViewModel() {
+
 
     val friends = friendRepository.getAllFriends()
 
