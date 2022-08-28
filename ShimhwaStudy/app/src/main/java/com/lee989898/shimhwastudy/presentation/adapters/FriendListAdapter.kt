@@ -1,13 +1,17 @@
-package com.lee989898.shimhwastudy
+package com.lee989898.shimhwastudy.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.lee989898.shimhwastudy.data.models.db.entity.FriendInfo
+import com.lee989898.shimhwastudy.data.models.types.MBTI
 import com.lee989898.shimhwastudy.databinding.ItemFriendListBinding
+import com.lee989898.shimhwastudy.utils.ItemDiffCallback
 
 class FriendListAdapter(
-    private val itemClickListener: (Int, String, String) -> Unit
+    private val updateDeleteClickListener: (Int, String, String, MBTI?) -> Unit,
+    private val friendDetailClickListener: (FriendInfo?) -> Unit
 ) : ListAdapter<FriendInfo, FriendListAdapter.FriendListViewHolder>(
     ItemDiffCallback<FriendInfo>(
         onContentsTheSame = { old, new -> old == new },
@@ -25,7 +29,7 @@ class FriendListAdapter(
     }
 
     override fun onBindViewHolder(holder: FriendListViewHolder, position: Int) {
-        holder.onBind(getItem(position), itemClickListener)
+        holder.onBind(getItem(position), updateDeleteClickListener, friendDetailClickListener)
     }
 
     class FriendListViewHolder(private val binding: ItemFriendListBinding) :
@@ -33,11 +37,22 @@ class FriendListAdapter(
 
         fun onBind(
             friendInfo: FriendInfo,
-            itemClickListener: (Int, String, String) -> Unit
+            updateDeleteClickListener: (Int, String, String, MBTI?) -> Unit,
+            friendDetailClickListener: (FriendInfo?) -> Unit
         ) {
-            binding.friendInfo = friendInfo
-            binding.layoutFriendInfo.setOnClickListener {
-                itemClickListener.invoke(friendInfo.id, friendInfo.name, friendInfo.email)
+            with(binding) {
+                this.friendInfo = friendInfo
+                btnUpdateDelete.setOnClickListener {
+                    updateDeleteClickListener.invoke(
+                        friendInfo.id,
+                        friendInfo.name,
+                        friendInfo.email,
+                        friendInfo.mbti
+                    )
+                }
+                layoutFriendInfo.setOnClickListener {
+                    friendDetailClickListener(friendInfo)
+                }
             }
         }
     }
