@@ -7,13 +7,13 @@
 
         <variable
             name="homeViewModel"
-            type="com.lee989898.shimhwastudy.HomeViewModel" />
+            type="com.lee989898.shimhwastudy.presentation.viewmodels.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".HomeActivity">
+        tools:context=".presentation.views.HomeActivity">
 
         <ImageView
             android:id="@+id/iv_logo"
