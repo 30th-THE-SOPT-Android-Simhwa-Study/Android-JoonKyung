@@ -1,9 +1,14 @@
-package com.lee989898.shimhwastudy
+package com.lee989898.shimhwastudy.data.models.db.entity
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.lee989898.shimhwastudy.data.models.types.MBTI
+import com.lee989898.shimhwastudy.presentation.views.FriendActivity
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity(tableName = FriendActivity.TABLE_NAME)
 data class FriendInfo(
 
@@ -15,5 +20,8 @@ data class FriendInfo(
     val name: String,
 
     @ColumnInfo(name = "friend_email")
-    val email: String
-)
+    val email: String,
+
+    @ColumnInfo(name = "friend_mbti")
+    val mbti: MBTI?
+): Parcelable
